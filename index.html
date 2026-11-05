@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>ACBuy spreadsheet – svensk guide till storlekar och QC</title>
+  <meta name="description" content="Utforska ACBuy spreadsheet med en svensk köpguide. Jämför sneakers, kläder och accessoarer, läs QC-bilder och kontrollera mått innan du väljer.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#112d46">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ACBuy spreadsheet – välj med bättre underlag">
+  <meta property="og:description" content="En svensk guide till produktlistor, mått och QC-bilder. Börja med en kategori och jämför detaljerna som spelar roll.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1641792669610-83e23d551bec?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
+  <meta property="og:image:alt" content="Vita Nike-sneakers fotograferade utomhus på ett betongunderlag">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23112d46'/%3E%3Cpath d='M17 16h30v9H27v7h17v8H27v9H17z' fill='%23d6f479'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #112d46;
+      --muted: #4e6273;
+      --paper: #f4f7fa;
+      --white: #fff;
+      --line: #d3dee7;
+      --lime: #d6f479;
+      --blue: #e0ecf5;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-underline-offset: 4px;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    a:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid #1565c0;
+      outline-offset: 5px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    figure, p, h1, h2, h3 { margin: 0; }
+
+    h1, h2, h3 {
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6.5vw, 5.5rem);
+      max-width: 16ch;
+    }
+
+    h2 { font-size: clamp(1.8rem, 3.8vw, 3rem); }
+    h3 { font-size: 1.3rem; }
+    p + p { margin-top: 1rem; }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 22px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+
+    .brand span {
+      display: inline-grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--lime);
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      margin-right: 9px;
+    }
+
+    .edition {
+      font-size: .8rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .label {
+      font-size: .73rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+
+    .category-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .category-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .category-heading h2 {
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    .category-heading p {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .categories {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .categories a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 48px;
+      padding: 9px 12px;
+      background: var(--paper);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .84rem;
+      font-weight: 650;
+    }
+
+    .categories a:hover { background: var(--blue); }
+    .categories span { color: #526b80; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 24px;
+      background: var(--ink);
+      color: white;
+      min-height: 550px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% 52%;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(7, 24, 39, .95),
+        rgba(7, 24, 39, .78) 43%,
+        rgba(7, 24, 39, .08)
+      );
+      z-index: -1;
+    }
+
+    .hero-copy {
+      padding: clamp(28px, 5vw, 64px);
+      max-width: 710px;
+    }
+
+    .hero .label {
+      color: var(--lime);
+      margin-bottom: 20px;
+    }
+
+    .hero p.intro {
+      max-width: 48ch;
+      margin: 24px 0;
+      color: #ecf2f7;
+      font-size: 1.06rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      min-height: 48px;
+      background: var(--lime);
+      color: var(--ink);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .button:hover { background: #e4ffa0; }
+
+    .photo-credit {
+      font-size: .72rem;
+      color: var(--muted);
+      margin: 10px 4px 0;
+    }
+
+    .answer {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 28px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .answer .label { padding-top: 5px; }
+
+    .answer p {
+      max-width: 83ch;
+      font-size: 1.05rem;
+    }
+
+    .section { padding-top: 76px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 35px;
+      margin-bottom: 28px;
+    }
+
+    .section-head .label {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .section-head > p {
+      max-width: 36ch;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .visual-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .visual-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .visual-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: white;
+    }
+
+    .visual-card figcaption { padding: 23px; }
+
+    .visual-card .label {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .visual-card p {
+      margin-top: 12px;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .visual-card a {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .accessory-strip {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      align-items: center;
+      gap: 30px;
+      margin-top: 18px;
+      background: var(--blue);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .accessory-strip img {
+      width: 210px;
+      height: 210px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .accessory-strip figcaption {
+      padding: 24px 30px 24px 0;
+      max-width: 70ch;
+    }
+
+    .accessory-strip p { margin-top: 10px; }
+
+    .note {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      counter-reset: step;
+    }
+
+    .step {
+      border-top: 2px solid var(--ink);
+      padding-top: 18px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      color: var(--muted);
+      font-size: .8rem;
+      margin-bottom: 22px;
+    }
+
+    .step p {
+      font-size: .93rem;
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    .reading-room {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 50px;
+    }
+
+    .reading-room aside .label {
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .reading-room aside p:last-child {
+      margin-top: 20px;
+      color: var(--muted);
+    }
+
+    .article {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 18px;
+    }
+
+    .article .label {
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .article h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .article ul {
+      padding-left: 20px;
+      margin: 18px 0 0;
+    }
+
+    .article li {
+      padding-left: 4px;
+      margin-top: 10px;
+      font-size: .94rem;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: .92rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 16px 20px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: var(--blue);
+      font-weight: 750;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { font-weight: 650; }
+    table p { min-width: 180px; }
+
+    .faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .faq details {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 750;
+      line-height: 1.45;
+      padding-right: 10px;
+    }
+
+    .faq details p {
+      margin-top: 16px;
+      font-size: .94rem;
+      color: var(--muted);
+    }
+
+    .closing {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      background: var(--ink);
+      color: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      margin: 70px 0 36px;
+    }
+
+    .closing h2 { font-size: 2rem; }
+
+    .closing p {
+      margin-top: 12px;
+      max-width: 55ch;
+      color: #dbe6ef;
+    }
+
+    .closing .button { flex-shrink: 0; }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 35px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .research { margin-top: 24px; }
+
+    .research summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .research > p { margin: 15px 0; }
+    .research table { font-size: .8rem; }
+
+    .deferred {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 700px;
+    }
+
+    @media (min-width: 1600px) {
+      .hero > img { object-position: 70% 55%; }
+    }
+
+    @media (max-width: 900px) {
+      .categories {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .visual-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .visual-card figcaption { padding: 18px; }
+
+      .reading-room {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .reading-room aside { max-width: 70ch; }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head > p { max-width: 30ch; }
+      .hero { min-height: 520px; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 28px); }
+      .top { padding-block: 17px; }
+      .edition { font-size: .69rem; }
+      .brand { font-size: 1rem; }
+      .category-box { padding: 14px; }
+      .category-heading { display: block; }
+      .category-heading p { margin-top: 5px; }
+
+      .categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .categories a {
+        font-size: .8rem;
+        padding: 9px;
+      }
+
+      .hero {
+        min-height: 540px;
+        align-items: flex-end;
+      }
+
+      .hero > img { object-position: 63% 45%; }
+
+      .hero::after {
+        background: linear-gradient(
+          0deg,
+          rgba(7, 24, 39, .98),
+          rgba(7, 24, 39, .65) 65%,
+          rgba(7, 24, 39, .14)
+        );
+      }
+
+      .hero-copy { padding: 28px 24px; }
+      .hero p.intro { font-size: .98rem; }
+      h1 { font-size: 2.8rem; }
+
+      .answer {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding-block: 24px;
+      }
+
+      .section { padding-top: 50px; }
+      .section-head { display: block; }
+
+      .section-head > p {
+        max-width: none;
+        margin-top: 18px;
+      }
+
+      .visual-grid { grid-template-columns: 1fr; }
+
+      .visual-card {
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        align-items: start;
+      }
+
+      .visual-card img {
+        aspect-ratio: 3 / 4;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .visual-card figcaption { padding: 20px 16px; }
+      .visual-card h3 { font-size: 1.18rem; }
+
+      .accessory-strip {
+        grid-template-columns: 115px 1fr;
+        gap: 16px;
+      }
+
+      .accessory-strip img {
+        width: 115px;
+        height: 160px;
+      }
+
+      .accessory-strip figcaption {
+        padding: 18px 14px 18px 0;
+      }
+
+      .accessory-strip h3 { font-size: 1.1rem; }
+      .accessory-strip p { font-size: .85rem; }
+      .steps { gap: 25px 18px; }
+      .step h3 { font-size: 1.15rem; }
+      .article { padding: 24px 20px; }
+      .faq { grid-template-columns: 1fr; }
+
+      .closing {
+        display: block;
+        padding: 28px;
+      }
+
+      .closing .button { margin-top: 24px; }
+      .footer-top { display: block; }
+
+      .footer-top span {
+        display: block;
+        margin-top: 6px;
+      }
+
+      th, td {
+        padding: 13px;
+        min-width: 145px;
+      }
+
+      .research td { min-width: 160px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+    }
+
+    @media print {
+      body { background: white; }
+      .wrap { width: 100%; }
+
+      .hero {
+        min-height: 0;
+        background: white;
+        color: #000;
+      }
+
+      .hero > img,
+      .hero::after,
+      .button {
+        display: none;
+      }
+
+      .hero-copy { padding: 20px 0; }
+
+      .hero p.intro,
+      .hero .label {
+        color: #222;
+      }
+
+      .deferred { content-visibility: visible; }
+      .section { padding-top: 25px; }
+      .reading-room { display: block; }
+      .faq { display: block; }
+      .faq details { break-inside: avoid; }
+      .research { display: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "#sidan",
+        "name": "ACBuy spreadsheet – svensk guide till storlekar och QC",
+        "description": "En oberoende svensk guide till produktlistor, storlekar, QC-bilder och val av kläder och accessoarer.",
+        "inLanguage": "sv",
+        "about": {
+          "@type": "Thing",
+          "name": "ACBuy spreadsheet"
+        },
+        "hasPart": [
+          {"@id": "#artikel-matt"},
+          {"@id": "#artikel-qc"},
+          {"@id": "#artikel-lista"},
+          {"@id": "#fragor"}
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-matt",
+        "headline": "Storlekar: börja med plagget du redan trivs i",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#sidan"},
+        "description": "Jämför innersula, bröstvidd, ärmlängd, midja och innerben med samma mätmetod."
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-qc",
+        "headline": "QC-bilder: titta efter svar, inte bara snygga vinklar",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#sidan"},
+        "description": "Kontrollera variant, synliga sömmar, färger och detaljer. Fotografier bevisar inte äkthet eller hållbarhet."
+      },
+      {
+        "@type": "Article",
+        "@id": "#artikel-lista",
+        "headline": "En produktlista som hjälper dig att välja bort",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#sidan"},
+        "description": "Ordna produktreferenser efter användning och dokumentera material, villkor, kostnadsposter och datum."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "#fragor",
+        "inLanguage": "sv",
+        "isPartOf": {"@id": "#sidan"},
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Vad är en ACBuy spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Det är en produktlista som används vid sökning efter ACBuy-relaterade fynd. Den kan innehålla kategorier, produktlänkar, varianter och QC-referenser. En post i listan bevisar inte kvalitet, äkthet eller aktuellt lager."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur börjar jag jämföra produkter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Välj en kategori och begränsa urvalet till några alternativ. Kontrollera exakt variant, mått, material och aktuella villkor. Spara datum och obesvarade frågor tillsammans med produktreferensen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Är QC-bilder ett äkthetsintyg?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. QC-bilder kan visa synliga detaljer hos en fotograferad vara. De bevisar inte ursprung, materialinnehåll, hållbarhet eller äkthet. En bild från en annan beställning visar inte skicket på din vara."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hur väljer jag rätt storlek?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jämför mått i centimeter med skor eller plagg som passar dig. Kontrollera hur måtten har tagits och använd tabellen för den aktuella modellen. EU-, UK- och US-storlekar har ingen universell omvandling som passar alla modeller."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ingår frakt och andra avgifter i listans pris?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Utgå inte från det. Kontrollera varans pris, lokal transport, eventuella tjänsteavgifter, internationell frakt och tillämpliga importkostnader separat. Den här sidan visar inga aktuella priser och lämnar ingen fraktoffert."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan jag beställa genom ACBuy just nu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Den här sidan har inte verifierat ACBuys aktuella beställningsstöd. Kontrollera tjänstens egna aktuella besked och att den valda varan kan hanteras innan du betalar. En sparad produktlänk eller en fungerande startsida bekräftar inte att en order kan genomföras."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Är detta en officiell webbplats och vart leder länkarna?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Detta är en oberoende informationssida utan officiell koppling till ACBuy eller de visade varumärkena. Kategorilänkarna öppnar angivna kategorier hos Hipobuyfind. Övriga länkar öppnar Hipobuyfinds startsida. Bilderna är visuella referenser och visar inte verifierat lager där."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/zokfz/">
+</head>
+<body>
+  <!--
+  index.html. Fristående statisk sida med inbäddad CSS och strukturerade data.
+
+  Sökunderlag: ACBuy spreadsheet, 5 november 2026.
+  Googles resultatsida kunde inte öppnas; tio relaterade domäner valdes ur
+  tillgängliga webbsökresultat, utan verifierad Google-placering.
+  Källornas försäljningspåståenden har inte övertagits.
+
+  Källor:
+  https://acbuy.net/
+  https://ac-sheet.com/
+  https://qcradar.com/acbuy-spreadsheet
+  https://alibabaspreadsheet.com/acbuy-spreadsheet
+  https://acbuy.io/
+  https://sheetsacbuy.com/
+  https://acbuyspreadsheet.com/
+  https://www.acbuy.fun/
+  https://acbuyspreadsheet.net/
+  https://acbuy.vip/
+
+  Sekundära sökteman:
+  ACBuy köpguide; ACBuy storleksguide; ACBuy QC-bilder; ACBuy produktlista.
+
+  Tjugofyra längre sökteman används som konkreta råd i artiklarna.
+  Lägg till självrefererande canonical och og:url när sidans slutliga URL är känd.
+  -->
+
+  <header class="wrap top">
+    <a class="brand" href="https://www.hipobuyfind.com" aria-label="Öppna Hipobuyfind">
+      <span aria-hidden="true">F</span>FORM &amp; FYND
+    </a>
+    <p class="edition">En svensk läsguide<br>Sneakers · kläder · detaljer</p>
+  </header>
+
+  <main class="wrap" id="huvudinnehall">
+    <nav class="category-box" aria-labelledby="kategori-rubrik">
+      <div class="category-heading">
+        <h2 id="kategori-rubrik">Börja i rätt kategori</h2>
+        <p>Kategorier hos Hipobuyfind</p>
+      </div>
+
+      <ul class="categories">
+        <li>
+          <a href="https://hipobuyfind.com/category-911-Shoes.html">
+            Skor <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">
+            Huvtröjor &amp; tröjor <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-913-T-Shirts.html">
+            T-tröjor <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-914-Jackets.html">
+            Jackor <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">
+            Byxor &amp; shorts <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-916-Headwear.html">
+            Kepsar &amp; mössor <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-917-Sets.html">
+            Matchande set <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">
+            Underkläder <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-919-Jersey.html">
+            Matchtröjor <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://hipobuyfind.com/category-920-Accessories.html">
+            Accessoarer <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="hero" aria-labelledby="sidrubrik">
+      <img
+        src="https://images.unsplash.com/photo-1641792669610-83e23d551bec?auto=format&amp;fit=crop&amp;w=1280&amp;h=720&amp;q=75"
+        srcset="https://images.unsplash.com/photo-1641792669610-83e23d551bec?auto=format&amp;fit=crop&amp;w=720&amp;h=900&amp;q=72 720w, https://images.unsplash.com/photo-1641792669610-83e23d551bec?auto=format&amp;fit=crop&amp;w=1280&amp;h=720&amp;q=75 1280w"
+        sizes="(max-width:620px) 100vw, (max-width:1220px) 96vw, 1180px"
+        width="1280"
+        height="720"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        alt="Vita Nike Air Force-sneakers på ett betongunderlag med grönska i bakgrunden">
+
+      <div class="hero-copy">
+        <p class="label">ACBuy spreadsheet · svensk vägledning</p>
+        <h1 id="sidrubrik">ACBuy spreadsheet.<br>Välj med eftertanke.</h1>
+        <p class="intro">
+          Ge nästa fynd lite eftertanke. Här får du hjälp att jämföra passform,
+          läsa QC-bilder och göra ett urval som fungerar i din vardag.
+        </p>
+        <a class="button" href="https://www.hipobuyfind.com">
+          Utforska Hipobuyfind <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <p class="photo-credit">
+      Referensfoto: Derrick Payton / Unsplash. Bilden är inspiration,
+      inte en lager- eller produktbekräftelse.
+    </p>
+
+    <section class="answer" aria-labelledby="kort-svar">
+      <h2 class="label" id="kort-svar">Det korta svaret</h2>
+      <p>
+        En <strong>ACBuy spreadsheet</strong> är en produktlista som kan samla
+        länkar, kategorier och uppgifter att jämföra. Använd den som en början
+        på din research: kontrollera den aktuella varianten, måtten och villkoren
+        hos den som hanterar varan innan du bestämmer dig.
+      </p>
+    </section>
+
+    <section class="section deferred" aria-labelledby="bildtema">
+      <div class="section-head">
+        <div>
+          <p class="label">01 / Form, funktion, proportion</p>
+          <h2 id="bildtema">Se mer än märket.</h2>
+        </div>
+        <p>
+          Fyra visuella exempel visar vilka frågor som hjälper dig vidare.
+          Inga av bilderna är QC-bilder från din beställning.
+        </p>
+      </div>
+
+      <div class="visual-grid">
+        <figure class="visual-card">
+          <img
+            src="https://kream-phinf.pstatic.net/MjAyNTA3MzFfODcg/MDAxNzUzOTExMzA0MjAx.Q3VRoyNPGxaGW_-mQ07l-hDLyZyDE0k3mvRe1YAGnzEg.m5iegYZlLHa76_eYB_X4D9HJa2gpXOV0TQnZiWVF4Hsg.PNG/a_977387f3dd9248899073cf287a30db5b.png"
+            width="640"
+            height="640"
+            loading="lazy"
+            decoding="async"
+            alt="Ljusblå jeansjacka från Louis Vuitton med monogram, bröstfickor och knappar framtill">
+          <figcaption>
+            <p class="label">Louis Vuitton / kläder</p>
+            <h3>Plats för ett lager till</h3>
+            <p>
+              Jämför jackans axlar och bröstvidd med en jacka du använder.
+              Tänk igenom vad du vill kunna bära under.
+            </p>
+            <a href="https://www.hipobuyfind.com">Utforska klädreferenser ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure class="visual-card">
+          <img
+            src="https://image.shinsegaev.com/upload/C00001/goods/org/620/230421004778620.jpg?RS=600&amp;SP=1"
+            width="600"
+            height="600"
+            loading="lazy"
+            decoding="async"
+            alt="Gucci-keps i beige och brunt med stort GG-monogram och böjd skärm">
+          <figcaption>
+            <p class="label">Gucci / huvudbonader</p>
+            <h3>En keps har fler mått</h3>
+            <p>
+              Omkretsen är bara början. Skärmens längd och kronans höjd
+              påverkar också hur kepsen sitter.
+            </p>
+            <a href="https://www.hipobuyfind.com">Utforska huvudbonader ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure class="visual-card">
+          <img
+            src="https://image-raw.reversible.com/raw_images/55e60e3331371558c11945406423351af009bebe609a79cc15ff5fd7e3311ee1.webp"
+            width="640"
+            height="640"
+            loading="lazy"
+            decoding="async"
+            alt="Guldfärgat Dior-halsband med bokstavshängen som bildar DIOR">
+          <figcaption>
+            <p class="label">Dior / smycken</p>
+            <h3>Längden ändrar uttrycket</h3>
+            <p>
+              Jämför kedjans längd med din halsringning. Läs uppgifterna
+              om material och ytbehandling separat.
+            </p>
+            <a href="https://www.hipobuyfind.com">Utforska accessoarer ↗</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <figure class="accessory-strip">
+        <img
+          src="https://assets.hermes.com/is/image/hermesproduct/clic-h-bracelet--700001FP4Z-front-wm-1-0-0-1000-1000_g.jpg?wid=420&amp;hei=420"
+          width="420"
+          height="420"
+          loading="lazy"
+          decoding="async"
+          alt="Hermès Clic H-armband med mörkblå emalj och silverfärgat H-format lås">
+        <figcaption>
+          <h3>Hermès / kontrollera öppningen också</h3>
+          <p>
+            Ett stelt armband behöver passa både runt handleden och när det tas på.
+            Be om tydliga mått och information om hur låset fungerar.
+          </p>
+        </figcaption>
+      </figure>
+
+      <p class="note">
+        Bildkällor: KREAM, Shinsegae V, Reversible och Hermès.
+        Varumärkena tillhör respektive ägare. Bilderna bekräftar varken äkthet,
+        tillgänglighet eller någon officiell koppling till denna sida.
+      </p>
+    </section>
+
+    <section class="section deferred" aria-labelledby="kopguide">
+      <div class="section-head">
+        <div>
+          <p class="label">02 / ACBuy köpguide</p>
+          <h2 id="kopguide">Från första intryck till tydligt val.</h2>
+        </div>
+        <p>
+          Behåll produktreferensen och dina frågor tillsammans. Då går det att
+          jämföra samma sak nästa gång du öppnar listan.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Välj en användning</h3>
+          <p>
+            Utgå från vardag, träning eller ett särskilt tillfälle. Ett par sneakers
+            och en jacka behöver bedömas efter olika behov.
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>Lås rätt variant</h3>
+          <p>
+            Notera modell, färg och storlek. Huvudbilden kan visa något annat
+            än alternativet du faktiskt har valt.
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>Samla underlaget</h3>
+          <p>
+            Jämför mått, beskrivning och relevanta bilder.
+            Markera det som fortfarande behöver ett svar.
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>Kontrollera villkoren</h3>
+          <p>
+            Läs aktuellt beställningsstöd, returvillkor och kostnadsposter
+            innan du betalar. Äldre listor kan ha tappat sin aktualitet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reading-room deferred" aria-labelledby="lasrum">
+      <aside>
+        <p class="label">03 / Teman &amp; korta artiklar</p>
+        <h2 id="lasrum">Ett litet läsrum för bättre jämförelser.</h2>
+        <p>
+          Tre guider om mått, bildbevis och produktlistor.
+          Välj den fråga som står mellan dig och ett genomtänkt beslut.
+        </p>
+      </aside>
+
+      <div>
+        <article class="article" id="artikel-matt" aria-labelledby="matt-rubrik">
+          <p class="label">ACBuy storleksguide</p>
+          <h3 id="matt-rubrik">Storlekar: börja med plagget du redan trivs i</h3>
+          <p>
+            Etiketten säger mindre än måtten. Lägg ett plagg som passar dig plant
+            och jämför med säljarens mätmetod. Skilj på bredd och omkrets;
+            en uppgift om bröstvidd kan annars tolkas på två olika sätt.
+          </p>
+          <ul>
+            <li>
+              <strong>Välja sneakers efter innermått:</strong>
+              kontrollera om uppgiften avser innersula, fotlängd eller yttersula.
+            </li>
+            <li>
+              <strong>Jämföra EU-, UK- och US-storlekar:</strong>
+              använd tabellen för just den modellen, inte en generell omvandling.
+            </li>
+            <li>
+              <strong>Mäta bröstvidd på en huvtröja:</strong>
+              jämför mellan armhålorna när plaggen ligger lika plant.
+            </li>
+            <li>
+              <strong>Välja t-tröja efter axelbredd:</strong>
+              kontrollera också kroppslängden och var ärmen börjar.
+            </li>
+            <li>
+              <strong>Jämföra byxor efter midja och innerben:</strong>
+              notera om midjan mäts avslappnad eller utsträckt.
+            </li>
+            <li>
+              <strong>Välja jacka för lager på lager:</strong>
+              jämför med en jacka du brukar bära över en tröja.
+            </li>
+            <li>
+              <strong>Hitta keps med rätt omkrets:</strong>
+              be om justeringsintervallet och mått på kronan.
+            </li>
+            <li>
+              <strong>Jämföra överdel och underdel i ett set:</strong>
+              kontrollera om storlekarna kan väljas var för sig.
+            </li>
+          </ul>
+        </article>
+
+        <article class="article" id="artikel-qc" aria-labelledby="qc-rubrik">
+          <p class="label">ACBuy QC-bilder</p>
+          <h3 id="qc-rubrik">QC-bilder: titta efter svar, inte bara snygga vinklar</h3>
+          <p>
+            QC betyder kvalitetskontroll. Bilder kan ge underlag för att granska
+            synliga detaljer, men de behöver kopplas till rätt vara och beställning.
+            En studiobild visar en presentation; ett foto av ett annat exemplar
+            är jämförelsematerial.
+          </p>
+          <ul>
+            <li>
+              <strong>Läsa QC-bilder av sneakers:</strong>
+              be om sidor, häl och sula om någon del saknas.
+            </li>
+            <li>
+              <strong>Kontrollera sömmar på kläder:</strong>
+              titta efter synliga glipor och lösa trådar i närbild.
+            </li>
+            <li>
+              <strong>Jämföra färger i olika ljus:</strong>
+              tänk på exponering och vitbalans innan du bedömer en avvikelse.
+            </li>
+            <li>
+              <strong>Kontrollera modell och färgvariant:</strong>
+              stäm av etikett och detaljer mot ditt val.
+            </li>
+            <li>
+              <strong>Granska tryck på matchtröjor:</strong>
+              kontrollera placering, text och eventuell personalisering.
+            </li>
+            <li>
+              <strong>Bedöma lås på armband:</strong>
+              en stillbild visar formen, men inte om mekanismen fungerar.
+            </li>
+            <li>
+              <strong>Skilja katalogbilder från QC-foton:</strong>
+              fråga vilken vara och beställning bilden tillhör.
+            </li>
+            <li>
+              <strong>Begära extra detaljbilder före leverans:</strong>
+              ange exakt vilken yta eller mätning du behöver se.
+            </li>
+          </ul>
+          <p class="note">
+            Fotografier är inte ett äkthetsintyg och kan inte fastställa
+            materialinnehåll eller framtida hållbarhet.
+          </p>
+        </article>
+
+        <article class="article" id="artikel-lista" aria-labelledby="lista-rubrik">
+          <p class="label">ACBuy produktlista</p>
+          <h3 id="lista-rubrik">En produktlista som hjälper dig att välja bort</h3>
+          <p>
+            En användbar lista behöver inte vara lång. Skriv varför varje alternativ
+            passar ditt behov och vad som ännu är okänt. När två alternativ verkar
+            lika hjälper det att jämföra samma fält i stället för att samla fler bilder.
+          </p>
+          <ul>
+            <li>
+              <strong>Organisera produktlänkar efter kategori:</strong>
+              skilj skor, kläder och accessoarer åt för överblick.
+            </li>
+            <li>
+              <strong>Spara produktreferenser med datum:</strong>
+              notera variant och när uppgifterna kontrollerades.
+            </li>
+            <li>
+              <strong>Jämföra material i produktbeskrivningar:</strong>
+              läs sammansättningen; dra inga slutsatser enbart från glans eller textur.
+            </li>
+            <li>
+              <strong>Välja underkläder efter mått och material:</strong>
+              kontrollera passform, elasticitet och hygienrelaterade returvillkor.
+            </li>
+            <li>
+              <strong>Kontrollera längd på halsband:</strong>
+              skilj grundlängden från eventuell förlängningskedja.
+            </li>
+            <li>
+              <strong>Jämföra hela beställningens kostnad:</strong>
+              håll varupris, transporter och övriga kostnadsposter åtskilda.
+            </li>
+            <li>
+              <strong>Kontrollera returvillkor före köp:</strong>
+              läs tidsfrist, undantag och vem som står för returen.
+            </li>
+            <li>
+              <strong>Undvika inaktuella produktlänkar:</strong>
+              öppna det aktuella underlaget igen innan du bestämmer dig.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section deferred" aria-labelledby="jamforelse">
+      <div class="section-head">
+        <div>
+          <p class="label">04 / Anteckna det som saknas</p>
+          <h2 id="jamforelse">Gör jämförelsen läsbar.</h2>
+        </div>
+        <p>
+          Använd dessa fält i en egen anteckning eller tabell.
+          Ett frågetecken är mer användbart än en gissning.
+        </p>
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="Förslag på fält i en produktjämförelse" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Fält</th>
+              <th scope="col">Anteckna</th>
+              <th scope="col">Kontrollfråga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Produkt och variant</td>
+              <td>Referens, färg, storlek och kategori</td>
+              <td>Jämför jag samma alternativ i bild och beskrivning?</td>
+            </tr>
+            <tr>
+              <td>Passform</td>
+              <td>Mått i centimeter och mätmetod</td>
+              <td>Är måtten jämförbara med något jag använder?</td>
+            </tr>
+            <tr>
+              <td>Material och detaljer</td>
+              <td>Angiven sammansättning och relevanta närbilder</td>
+              <td>Vad vet jag, och vad behöver jag fråga om?</td>
+            </tr>
+            <tr>
+              <td>Villkor och kostnader</td>
+              <td>Bekräftade kostnadsposter och aktuella villkor</td>
+              <td>Vilka poster saknas innan jag kan bedöma helheten?</td>
+            </tr>
+            <tr>
+              <td>Aktualitet</td>
+              <td>Datum och nästa kontroll</td>
+              <td>Behålla, fråga vidare eller ta bort?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section deferred" id="fragor" aria-labelledby="faq-rubrik">
+      <div class="section-head">
+        <div>
+          <p class="label">05 / Frågor med raka svar</p>
+          <h2 id="faq-rubrik">Bra att veta innan du går vidare.</h2>
+        </div>
+        <p>
+          Korta svar om produktlistor, storlekar och vad bilder faktiskt kan visa.
+        </p>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>Vad är en ACBuy spreadsheet?</summary>
+          <p>Det är en produktlista som används vid sökning efter ACBuy-relaterade fynd. Den kan innehålla kategorier, produktlänkar, varianter och QC-referenser. En post i listan bevisar inte kvalitet, äkthet eller aktuellt lager.</p>
+        </details>
+
+        <details>
+          <summary>Hur börjar jag jämföra produkter?</summary>
+          <p>Välj en kategori och begränsa urvalet till några alternativ. Kontrollera exakt variant, mått, material och aktuella villkor. Spara datum och obesvarade frågor tillsammans med produktreferensen.</p>
+        </details>
+
+        <details>
+          <summary>Är QC-bilder ett äkthetsintyg?</summary>
+          <p>Nej. QC-bilder kan visa synliga detaljer hos en fotograferad vara. De bevisar inte ursprung, materialinnehåll, hållbarhet eller äkthet. En bild från en annan beställning visar inte skicket på din vara.</p>
+        </details>
+
+        <details>
+          <summary>Hur väljer jag rätt storlek?</summary>
+          <p>Jämför mått i centimeter med skor eller plagg som passar dig. Kontrollera hur måtten har tagits och använd tabellen för den aktuella modellen. EU-, UK- och US-storlekar har ingen universell omvandling som passar alla modeller.</p>
+        </details>
+
+        <details>
+          <summary>Ingår frakt och andra avgifter i listans pris?</summary>
+          <p>Utgå inte från det. Kontrollera varans pris, lokal transport, eventuella tjänsteavgifter, internationell frakt och tillämpliga importkostnader separat. Den här sidan visar inga aktuella priser och lämnar ingen fraktoffert.</p>
+        </details>
+
+        <details>
+          <summary>Kan jag beställa genom ACBuy just nu?</summary>
+          <p>Den här sidan har inte verifierat ACBuys aktuella beställningsstöd. Kontrollera tjänstens egna aktuella besked och att den valda varan kan hanteras innan du betalar. En sparad produktlänk eller en fungerande startsida bekräftar inte att en order kan genomföras.</p>
+        </details>
+
+        <details>
+          <summary>Är detta en officiell webbplats och vart leder länkarna?</summary>
+          <p>Detta är en oberoende informationssida utan officiell koppling till ACBuy eller de visade varumärkena. Kategorilänkarna öppnar angivna kategorier hos Hipobuyfind. Övriga länkar öppnar Hipobuyfinds startsida. Bilderna är visuella referenser och visar inte verifierat lager där.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="nasta-steg">
+      <div>
+        <h2 id="nasta-steg">Nästa fynd börjar med en fråga.</h2>
+        <p>
+          Ta med dig ett tydligt mått, en materialfråga eller en detalj
+          att kontrollera när du utforskar vidare.
+        </p>
+      </div>
+      <a class="button" href="https://www.hipobuyfind.com">
+        Öppna Hipobuyfind <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <div class="footer-top">
+      <strong>FORM &amp; FYND / oberoende vägledning</strong>
+      <span>Svensk utgåva · 5 november 2026</span>
+    </div>
+
+    <p>
+      Informationssida utan officiell koppling till ACBuy, Nike, Louis Vuitton,
+      Gucci, Hermès eller Dior. Inga beställningar eller betalningar hanteras
+      på denna sida. Produktuppgifter, tillgänglighet och villkor behöver
+      kontrolleras hos den aktuella tjänsten.
+    </p>
+
+    <details class="research">
+      <summary>Sökunderlag och redaktionella val</summary>
+      <p>
+        Underlaget omfattar tio webbplatser som återfanns i offentliga sökresultat
+        för ACBuy spreadsheet. Googles resultatsida kunde inte läsas direkt,
+        så varken Googles första tio träffar eller deras ordning har verifierats.
+        Tabellen sammanfattar sökteman och innehållsstruktur, inte webbplatsernas
+        tillförlitlighet eller erbjudanden.
+      </p>
+
+      <div class="table-wrap" role="region" aria-label="Sökteman från tio relaterade webbplatser" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Webbplats</th>
+              <th scope="col">Observerade sökteman</th>
+              <th scope="col">Innehåll och struktur</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>acbuy.net</td>
+              <td>Produktfynd, produktlistor, köpguide</td>
+              <td>Kategorier, arbetsgång och förklarande frågor.</td>
+            </tr>
+            <tr>
+              <td>ac-sheet.com</td>
+              <td>Ny produktlista, skor, kläder</td>
+              <td>Kategorier som tidig ingång till produkturval.</td>
+            </tr>
+            <tr>
+              <td>qcradar.com</td>
+              <td>QC, produktlänkar, tjänstestatus</td>
+              <td>Statusinriktad introduktion och vanliga frågor.</td>
+            </tr>
+            <tr>
+              <td>alibabaspreadsheet.com</td>
+              <td>Statuskontroll, produktreferenser</td>
+              <td>Daterad genomgång som skiljer olika statussignaler åt.</td>
+            </tr>
+            <tr>
+              <td>acbuy.io</td>
+              <td>Produktlista, QC-foton, nybörjarguide</td>
+              <td>Definition, kategorinavigering och vägledande avsnitt.</td>
+            </tr>
+            <tr>
+              <td>sheetsacbuy.com</td>
+              <td>Produktfynd, klädkategorier</td>
+              <td>Introduktion och genvägar till kategorier.</td>
+            </tr>
+            <tr>
+              <td>acbuyspreadsheet.com</td>
+              <td>Produkturval, QC, användarguide</td>
+              <td>Rutnätsbaserad presentation och korta produkttexter.</td>
+            </tr>
+            <tr>
+              <td>acbuy.fun</td>
+              <td>Skor, matchtröjor, accessoarer</td>
+              <td>Kategorimeny och en omfattande produktlista.</td>
+            </tr>
+            <tr>
+              <td>acbuyspreadsheet.net</td>
+              <td>Produktlista, utvalda artiklar, mobil användning</td>
+              <td>Visuella produktblock och återkommande frågor.</td>
+            </tr>
+            <tr>
+              <td>acbuy.vip</td>
+              <td>Kläder, skor, smycken</td>
+              <td>Kategorier och korta beskrivningar av produktvarianter.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Den här sidans fyra stödteman är ACBuy köpguide, ACBuy storleksguide,
+        ACBuy QC-bilder och ACBuy produktlista. Artiklarna utvecklar 24 mer
+        specifika frågor till praktiska råd. Texten är självständigt skriven;
+        källornas priser, betyg och löften återges inte som fakta.
+      </p>
+    </details>
+  </footer>
+</body>
+</html>
